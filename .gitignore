@@ -1,0 +1,30 @@
+# .NET build artefacts
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Plugin packaging output
+*.plugin
+
+# Personal study notes / scratch (don't commit private notes by accident)
+notes-perso/
+*.draft.md
+
+# Sync logs from the daily check task (transient)
+sync-status.md
+SYNC-ALERT-*.md

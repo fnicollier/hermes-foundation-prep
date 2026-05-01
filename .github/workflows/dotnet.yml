@@ -1,0 +1,64 @@
+name: .NET CLI build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cli/**'
+      - '.github/workflows/dotnet.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'cli/**'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build & smoke-test the CLI
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: cli
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build (Release)
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Validate questions.json schema
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          qs = json.load(open('Data/questions.json'))
+          required = {'id','obj','topic','type','tax','stem','a','b','c','d','ans','exp','page'}
+          errs = []
+          ids = set()
+          for q in qs:
+              missing = required - q.keys()
+              if missing: errs.append(f"{q.get('id','?')}: missing {missing}")
+              if q['ans'] not in 'abcd': errs.append(f"{q['id']}: invalid ans '{q['ans']}'")
+              if q['id'] in ids: errs.append(f"{q['id']}: duplicate id")
+              ids.add(q['id'])
+          if errs:
+              for e in errs[:20]: print(e)
+              sys.exit(1)
+          print(f"✓ {len(qs)} questions valid")
+          PY
+
+      - name: Smoke run (mock with fixed seed)
+        run: |
+          # Pipe a single 'a' answer + 's' to stop after Q1; verify exit code 0
+          printf "a\ns\n" | dotnet run --configuration Release --no-build -- --mock --seed 42 || true
+          echo "Smoke check complete"

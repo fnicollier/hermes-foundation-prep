@@ -1,0 +1,20 @@
+{
+  "name": "hermes-foundation-quiz",
+  "version": "0.1.0",
+  "description": "Préparation interactive de la certification HERMES 2022 Foundation : générateur de QCM calibré sur les objectifs didactiques officiels (Édition décembre 2025) et le style TÜV SÜD Akademie.",
+  "author": {
+    "name": "Fabian Nicollier",
+    "email": "fabian.nicollier@elca.ch"
+  },
+  "keywords": [
+    "hermes",
+    "certification",
+    "foundation",
+    "quiz",
+    "examen",
+    "qcm",
+    "swiss-confederation",
+    "project-management"
+  ],
+  "license": "MIT",
+  "homepage
