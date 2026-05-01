@@ -6,15 +6,24 @@ on:
     paths:
       - 'cli/**'
       - '.github/workflows/dotnet.yml'
+    tags:
+      - 'v*'
   pull_request:
     branches: [main]
     paths:
       - 'cli/**'
   # Manual trigger from the GitHub Actions tab
   workflow_dispatch:
+    inputs:
+      release:
+        description: 'Build self-contained binaries and publish a release'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
 
 permissions:
-  contents: read
+  contents: write    # required to create GitHub Releases
 
 jobs:
   build:
@@ -64,3 +73,123 @@ jobs:
           # Pipe a single 'a' answer + 's' to stop after Q1; verify exit code 0
           printf "a\ns\n" | dotnet run --configuration Release --no-build -- --mock --seed 42 || true
           echo "Smoke check complete"
+
+  # Build self-contained binaries for each OS / arch.
+  # Runs on tag push (v*) or when triggered manually with release=true.
+  publish:
+    name: Publish ${{ matrix.rid }}
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v') || github.event.inputs.release == 'true'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            rid: linux-x64
+            archive: tar.gz
+          - os: windows-latest
+            rid: win-x64
+            archive: zip
+          - os: macos-latest
+            rid: osx-arm64
+            archive: tar.gz
+          - os: macos-13
+            rid: osx-x64
+            archive: tar.gz
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Publish self-contained single-file
+        working-directory: cli
+        shell: bash
+        run: |
+          dotnet publish HermesQuizCli.csproj \
+            --configuration Release \
+            --runtime ${{ matrix.rid }} \
+            --self-contained true \
+            -p:PublishSingleFile=true \
+            -p:IncludeNativeLibrariesForSelfExtract=true \
+            -p:DebugType=embedded \
+            --output publish/${{ matrix.rid }}
+
+      - name: Package archive
+        working-directory: cli/publish/${{ matrix.rid }}
+        shell: bash
+        run: |
+          set -e
+          # Drop PDBs to keep archive size small
+          rm -f *.pdb
+          ARCHIVE_NAME="hermes-quiz-${{ matrix.rid }}"
+          if [ "${{ matrix.archive }}" = "zip" ]; then
+            7z a -tzip "${ARCHIVE_NAME}.zip" * > /dev/null
+          else
+            tar czf "${ARCHIVE_NAME}.tar.gz" *
+          fi
+          ls -la "${ARCHIVE_NAME}".*
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hermes-quiz-${{ matrix.rid }}
+          path: cli/publish/${{ matrix.rid }}/hermes-quiz-${{ matrix.rid }}.*
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    name: Create GitHub Release
+    needs: publish
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Flatten artifact tree
+        run: |
+          mkdir -p release
+          find artifacts -type f \( -name '*.zip' -o -name '*.tar.gz' \) -exec mv {} release/ \;
+          ls -la release/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: HermesQuizCli ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: release/*
+          body: |
+            HERMES 2022 Foundation Quiz CLI — release ${{ github.ref_name }}
+
+            **Téléchargement** (binaire autonome, ne nécessite pas .NET installé) :
+            - `hermes-quiz-win-x64.zip` — Windows x64
+            - `hermes-quiz-linux-x64.tar.gz` — Linux x64
+            - `hermes-quiz-osx-arm64.tar.gz` — macOS Apple Silicon (M-series)
+            - `hermes-quiz-osx-x64.tar.gz` — macOS Intel
+
+            **Installation rapide :**
+            ```bash
+            # Linux / macOS
+            tar xzf hermes-quiz-<rid>.tar.gz
+            chmod +x hermes-quiz
+            ./hermes-quiz
+
+            # Windows (PowerShell)
+            Expand-Archive hermes-quiz-win-x64.zip
+            .\hermes-quiz-win-x64\hermes-quiz.exe
+            ```
+
+            215 questions HERMES 2022 Foundation calibrées sur les Lernziele officiels (Édition décembre 2025).
+            Voir [README](https://github.com/${{ github.repository }}/blob/main/cli/README.md) pour l'usage complet.
