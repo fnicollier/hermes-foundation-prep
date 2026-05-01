@@ -238,7 +238,7 @@ Pages canoniques de [hermes.admin.ch](https://www.hermes.admin.ch/) — seul con
 |--------|----------|------------------|
 | **Pilotage** ⭐ | Piloter le projet dans son ensemble, préparer la clôture | Mandant, Comité de pilotage, Comité spécialisé |
 | **Conduite** ⭐ | Conduire le projet quotidiennement, garantir l'AQ | Chef de projet, Gestionnaire QR, Assistance, Chef de sous-projet |
-| **Exécution** ⭐ | Élaborer la solution + mesures d'AQ opérationnelles | Business analyst, Développeur, Architecte, Resp. tests, Testeur, Resp. exploitation, Resp. SIPD |
+| **Exécution** ⭐ | Élaborer la solution + mesures d'AQ opérationnelles | **Représentant des utilisateurs**, Business analyst, Développeur, Architecte, Resp. tests, Testeur, Resp. exploitation, Resp. SIPD |
 
 🪤 *Comité spécialisé est attribué au niveau Pilotage MAIS appartient à l'**organisation permanente**.*
 🪤 *Chef de projet et Gestionnaire QR sont en **Conduite**, jamais en Pilotage.*
@@ -265,7 +265,7 @@ Pages canoniques de [hermes.admin.ch](https://www.hermes.admin.ch/) — seul con
 |------|--------|--------|---------|
 | **Mandant** ⭐ | Pilotage | Utilisateur | Responsable global, libère les ressources, décide. *(p. 173 · 🔗 [doc](https://www.hermes.admin.ch/fr/gestion-de-projet/roles/mandant.html))* |
 | **Chef de projet** ⭐ | Conduite | Utilisateur | Conduit le projet quotidiennement, livre la solution. *(p. 179 · 🔗 [doc](https://www.hermes.admin.ch/fr/gestion-de-projet/roles/chef-de-projet.html))* |
-| **Représentant des utilisateurs** ⭐ | Conduite (classique) / Exécution (agile) | Utilisateur | Élabore et priorise les exigences, valide la réception. *(p. 188 · 🔗 [doc](https://www.hermes.admin.ch/fr/gestion-de-projet/roles/representant-des-utilisateurs.html))* |
+| **Représentant des utilisateurs** ⭐ | Exécution | Utilisateur | Élabore et priorise les exigences, valide la réception. *(p. 188 · 🔗 [doc](https://www.hermes.admin.ch/fr/gestion-de-projet/roles/representant-des-utilisateurs.html))* |
 
 ### Pilotage
 
