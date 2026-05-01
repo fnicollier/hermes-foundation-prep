@@ -7,4 +7,4 @@ public sealed record QuizConfig(
     bool MockMode = false,
     int? Seed = null,
     bool ShowExplanationOnCorrect = true,
-  
+    bool CountExplicit = false);

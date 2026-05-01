@@ -323,4 +323,91 @@ Tout rôle est décrit avec : **Description / Responsabilité / Compétences / Q
 
 | Règle | Source |
 |-------|--------|
-| **Mandant** ↔ **Chef de projet** : ne peuvent **JAMAI
+| **Mandant** ↔ **Chef de projet** : ne peuvent **JAMAIS** être occupés par la même personne | slide 55 |
+| **Mandant** = *toujours une seule personne physique* issue de l'organisation permanente, à position hiérarchique suffisamment élevée | slide 55 |
+| **Chef de projet** doit être rattaché à **Utilisateur** ; **interdit** de le recruter chez Producteurs/Exploitants (conflit d'intérêt) | slide 57 |
+| **Représentant des utilisateurs** doit être rattaché à **Utilisateur** ; **interdit** chez Producteurs/Exploitants | slide 59 |
+| **Gestionnaire QR** : issu d'une **organisation indépendante**, **n'assume aucun autre rôle** dans le projet | slide 56 |
+
+#### Cumuls autorisés (avec garde-fous)
+
+| Cumul | Condition |
+|-------|-----------|
+| **Chef de projet** + **Chef de sous-projet** d'un module | OK si disponibilité validée par le Mandant *(slide 57)* |
+| **Chef de sous-projet** recruté chez **Producteurs/Exploitants** | OK — la responsabilité générale incombe au Chef de projet *(slide 58)* |
+| **Business analyste** + **Représentant des utilisateurs** | OK **si** connaissances métier approfondies dans le domaine *(slide 60)* |
+| **Représentant des utilisateurs** + **utilisateur final** | OK *(slide 59)* |
+| **Chef de projet** + rôle d'exécution | OK si disponibilité préservée *(slide 57)* |
+
+#### Cumuls déconseillés (gouvernance, pas formellement interdits)
+
+| Cumul | Pourquoi |
+|-------|----------|
+| **Chef de projet** + **Représentant des utilisateurs** | Crée un conflit juge/partie sur exigences vs livraison (à éviter en agile particulièrement) |
+
+> 🪤 La **seule incompatibilité strictement formelle** dans HERMES est *Mandant ↔ Chef de projet*. Toutes les autres combinaisons sont des principes de gouvernance — distinguer formellement interdit vs. déconseillé est un piège classique.
+
+- Plusieurs personnes peuvent occuper le même rôle (rôle partagé) si l'ampleur du projet le justifie.
+- Le Mandant **désigne** le Chef de projet et le Représentant des utilisateurs ; le Chef de projet **désigne** le Chef de sous-projet ; le Mandant **confie** la gestion qualité/risques au Gestionnaire QR.
+
+---
+
+## 13. Programme (existence à connaître seulement) · 🔗 [doc en ligne](https://www.hermes.admin.ch/fr/gestion-de-programme/apercu-de-la-methode.html)
+
+| Terme | Définition |
+|-------|------------|
+| **Programme** | Regroupement de projets servant un objectif stratégique commun. *(p. 167)* |
+| **Modèle de phase pour programmes** ⭐ | **3 phases** : Initialisation → Réalisation → Clôture. *(p. 167)* |
+| **3 modèles d'organisation de projet** | Projet indépendant ; projet dans un programme avec organisation propre ; projet dans un programme avec organisation partagée. *(p. 168, fig. 27)* |
+
+🪤 *Les détails du programme (annexe du manuel) sont **hors scope** Foundation. Seule l'existence et le modèle des 3 phases sont testables.*
+
+---
+
+## 14. Application — gouvernance, durabilité, etc. · 🔗 [doc en ligne](https://www.hermes.admin.ch/fr/gestion-de-projet/remarques-concernant-lapplication.html)
+
+| Terme | Définition |
+|-------|------------|
+| **Gouvernance** | Pilotage stratégique, organisation et reporting des projets dans l'organisation permanente. *(p. 205)* |
+| **Durabilité** | Prise en compte environnementale, sociale, économique dans exigences/conception/exploitation. *(p. 210)* |
+| **Pilotage et conduite financiers** | Suivi budgétaire et financier au fil du projet. |
+| **Auto-détermination des utilisateurs** | Capacité des utilisateurs à diriger eux-mêmes leur projet (priorisation). *(p. 217)* |
+| **Libération des ressources** | Octroi formel par le Mandant des ressources nécessaires au projet. |
+| **Reporting** | Communication récurrente sur l'avancement, la qualité, les risques. |
+
+---
+
+## 15. Termes hors scope (à savoir reconnaître mais ne PAS approfondir)
+
+| Terme | Pourquoi hors scope |
+|-------|--------------------|
+| Sprint, Product Owner, Scrum Master, Backlog | Vocabulaire Scrum — non HERMES. |
+| Story points, Velocity | Vocabulaire agile détaillé — non testé. |
+| Méthode Delphi | Citée comme distracteur, pas un outil HERMES. |
+| Analyse préliminaire | **N'existe pas** dans HERMES. |
+| Bénéficiaire de prestations / Prestataire / Fournisseur | Mauvais découpage des groupes de partenaires (les vrais sont Utilisateur/Producteur/Exploitant). |
+| Outils HERMES online (templates, listes online) | Obj 1.10 = non pertinent pour l'examen. |
+
+---
+
+## 16. Annexes — abréviations et sigles
+
+| Sigle | Signification |
+|-------|---------------|
+| **ChF** | Chancellerie fédérale |
+| **TNI** | Transformation numérique et gouvernance de l'informatique |
+| **SIPD** | Sécurité de l'Information et Protection des Données |
+| **AQ** | Assurance qualité |
+| **QR** | Qualité et Risques (gestionnaire QR) |
+| **PV** | Procès-verbal |
+| **eCH** | Norme de cyberadministration suisse |
+| **CDF / EFK** | Contrôle fédéral des finances / Eidgenössische Finanzkontrolle |
+
+---
+
+## Stratégie de mémorisation suggérée
+
+1. **Imprime cette fiche** et lis-la dès la fin de chaque chapitre étudié.
+2. **Marque tes confusions** au crayon — ce sont tes prochains drills (`/hermes-drill`).
+3. **Relis intégralement la veille de l'examen** — densité optimale pour révision finale.
+4. **Pour chaque ⭐, vérifie que tu peux la définir sans regarder.** Pour chaque 🪤, vérifie que tu en rejettes le piège correspondant.

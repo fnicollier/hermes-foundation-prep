@@ -121,4 +121,12 @@ Recompiler avec `dotnet build` — la nouvelle banque est embarquée automatique
 - Objectifs didactiques Foundation, Édition décembre 2025
 - Style des questions TÜV SÜD Akademie GmbH (organisme certificateur)
 
-## Limites & disclaime
+## Limites & disclaimers
+
+- Les 200 questions sont **originales** et approximent le style officiel ; elles **ne sont PAS** des questions de certification.
+- Source faisant foi pour la certification : [hermes.admin.ch](https://www.hermes.admin.ch) (principe *Digital First*).
+- Pour le passage réel, vérifier le seuil de réussite, la durée et le centre d'examen sur le site officiel.
+
+## Licence
+
+Usage interne ELCA. Auteur : Fabian Nicollier.

@@ -143,4 +143,42 @@ static QuizConfig ParseArgs(string[] args)
         TopicFilter: topic,
         MockMode: mock,
         Seed: seed,
-       
+        ShowExplanationOnCorrect: !hideExplanationOnCorrect,
+        CountExplicit: countExplicit);
+}
+
+static void PrintHelp()
+{
+    Console.WriteLine("""
+        HERMES Foundation Quiz CLI
+
+        Usage : hermes-quiz [options]
+                dotnet run -- [options]
+
+        Options :
+          -c, --count N        Nombre de questions à tirer (sinon : prompt interactif)
+          -o, --obj X[.Y]      Filtrer par objectif (ex. : --obj 4 ou --obj 1.3)
+          -t, --topic NAME     Filtrer par topic (ex. : --topic Phases)
+          -m, --mock           Examen blanc 40 questions (distribution officielle 12/8/10/10)
+          -s, --seed N         Graine RNG pour reproductibilité
+              --terse          Ne pas afficher l'explication quand la réponse est correcte
+          -h, --help           Affiche cette aide
+
+        Exemples :
+          hermes-quiz                       # demande combien de questions au démarrage
+          hermes-quiz 30                    # 30 questions, sans prompt
+          hermes-quiz --obj 4               # demande combien, sur l'Obj 4 uniquement
+          hermes-quiz --obj 1.3 -c 10       # 10 questions sur Obj 1.3 (Phases), sans prompt
+          hermes-quiz --topic Rôles         # demande combien, filtré par topic
+          hermes-quiz --mock                # examen blanc 40 Q (pas de prompt)
+          hermes-quiz --mock --seed 42      # mock reproductible (utile pour comparer 2 sessions)
+
+        Pendant le quiz :
+          a / b / c / d   Réponse à la question
+          q               Passer cette question
+          s               Stopper le quiz et voir le score partiel
+
+        Source : Manuel HERMES 2022 (Chancellerie fédérale) + Objectifs didactiques FND FR.
+        Les questions sont générées dans le style TÜV SÜD Akademie mais ne sont PAS officielles.
+        """);
+}

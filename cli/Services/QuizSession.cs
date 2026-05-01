@@ -180,4 +180,96 @@ public sealed class QuizSession
                 status);
         }
 
-        AnsiCons
+        AnsiConsole.Write(objTable);
+        AnsiConsole.WriteLine();
+
+        // === Recommandations de drill par concept ===
+        ShowDrillRecommendations();
+    }
+
+    /// <summary>
+    /// Identifie les concepts (topics) faibles et propose des commandes de drill ciblées.
+    /// </summary>
+    private void ShowDrillRecommendations()
+    {
+        if (_missedQuestions.Count == 0)
+        {
+            AnsiConsole.MarkupLine("[green bold]🎯 Aucun concept à driller — bravo ![/]");
+            return;
+        }
+
+        // Concepts faibles : topics avec >=1 erreur, triés par nombre d'erreurs puis ratio croissant
+        var weakTopics = _byTopic
+            .Where(kvp => kvp.Value.Total - kvp.Value.Correct >= 1)
+            .Select(kvp => new
+            {
+                Topic = kvp.Key,
+                Correct = kvp.Value.Correct,
+                Total = kvp.Value.Total,
+                Missed = kvp.Value.Total - kvp.Value.Correct,
+                Ratio = kvp.Value.Total == 0 ? 0 : 100 * kvp.Value.Correct / kvp.Value.Total
+            })
+            .OrderByDescending(x => x.Missed)
+            .ThenBy(x => x.Ratio)
+            .Take(5)
+            .ToList();
+
+        AnsiConsole.Write(new Rule("[yellow]💡 Concepts à driller en priorité[/]").LeftJustified());
+        AnsiConsole.WriteLine();
+
+        var drillTable = new Table()
+            .Border(TableBorder.Simple)
+            .AddColumn("Concept")
+            .AddColumn(new TableColumn("Score").RightAligned())
+            .AddColumn("Commande recommandée");
+
+        foreach (var w in weakTopics)
+        {
+            var quotedTopic = w.Topic.Contains(' ') ? $"\"{w.Topic}\"" : w.Topic;
+            drillTable.AddRow(
+                $"[bold]{Markup.Escape(w.Topic)}[/]",
+                $"{w.Correct}/{w.Total}",
+                $"[cyan]hermes-quiz --topic {Markup.Escape(quotedTopic)}[/]");
+        }
+
+        AnsiConsole.Write(drillTable);
+        AnsiConsole.WriteLine();
+
+        // === Pages du manuel à relire ===
+        var pagesByTopic = _missedQuestions
+            .GroupBy(q => q.Topic)
+            .Where(g => weakTopics.Any(w => w.Topic == g.Key))
+            .ToDictionary(
+                g => g.Key,
+                g => g.Select(q => q.Page).Distinct().OrderBy(p => p).ToList());
+
+        if (pagesByTopic.Count > 0)
+        {
+            AnsiConsole.MarkupLine("[grey]Pages du manuel à relire :[/]");
+            foreach (var kvp in pagesByTopic.OrderBy(k => k.Key))
+            {
+                var pages = string.Join(", ", kvp.Value.Select(p => $"p. {p}"));
+                AnsiConsole.MarkupLine($"  [grey]• {Markup.Escape(kvp.Key)} → {pages}[/]");
+            }
+            AnsiConsole.WriteLine();
+        }
+
+        // === Suggestion globale via l'objectif le plus faible ===
+        var weakestObj = _byObjectif
+            .Where(kvp => kvp.Value.Total >= 2)
+            .OrderBy(kvp => kvp.Value.Total == 0 ? 100 : 100 * kvp.Value.Correct / kvp.Value.Total)
+            .FirstOrDefault();
+
+        if (weakestObj.Key != null && weakestObj.Value.Total > 0)
+        {
+            var weakestPct = 100 * weakestObj.Value.Correct / weakestObj.Value.Total;
+            if (weakestPct < 70)
+            {
+                AnsiConsole.MarkupLine(
+                    $"[yellow]Pour une révision plus large :[/] " +
+                    $"[cyan]hermes-quiz --obj {weakestObj.Key}[/] " +
+                    $"[grey](Obj {weakestObj.Key} = {weakestPct} %)[/]");
+            }
+        }
+    }
+}
