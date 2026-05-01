@@ -10,6 +10,8 @@ on:
     branches: [main]
     paths:
       - 'cli/**'
+  # Manual trigger from the GitHub Actions tab
+  workflow_dispatch:
 
 permissions:
   contents: read
