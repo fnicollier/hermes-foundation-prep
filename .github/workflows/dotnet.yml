@@ -81,6 +81,7 @@ jobs:
     needs: build
     if: startsWith(github.ref, 'refs/tags/v') || github.event.inputs.release == 'true'
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
@@ -93,9 +94,6 @@ jobs:
             archive: zip
           - os: macos-latest
             rid: osx-arm64
-            archive: tar.gz
-          - os: macos-13
-            rid: osx-x64
             archive: tar.gz
 
     steps:
