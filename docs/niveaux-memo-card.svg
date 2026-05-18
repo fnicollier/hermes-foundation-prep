@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 720" xmlns="http://www.w3.org/2000/svg" role="img" font-family="-apple-system, BlinkMacSystemFont, sans-serif">
+  <title>3 niveaux hierarchiques HERMES 2022 - version corrigee</title>
+  <desc>Liste officielle des roles HERMES 2022 par niveau hierarchique. Pilotage, Conduite, Execution. QRM est en Pilotage (pas Execution).</desc>
+  <rect width="720" height="720" fill="#ffffff"/>
+
+  <text x="360" y="32" text-anchor="middle" font-size="22" font-weight="500" fill="#0f172a">3 niveaux hierarchiques HERMES 2022</text>
+  <text x="360" y="52" text-anchor="middle" font-size="12" fill="#475569">Liste officielle des roles (Tableau 19 hermes.admin.ch)</text>
+  <line x1="80" y1="68" x2="640" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+
+  <g>
+    <rect x="20" y="84" width="680" height="120" rx="12" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="40" y="114" font-size="20" font-weight="500" fill="#0f172a">Pilotage</text>
+    <text x="40" y="132" font-size="11" fill="#475569">Pilote le projet</text>
+    <text x="40" y="146" font-size="11" fill="#475569">et s assure que</text>
+    <text x="40" y="160" font-size="11" fill="#475569">les objectifs sont</text>
+    <text x="40" y="174" font-size="11" fill="#475569">atteints</text>
+    <rect x="40" y="180" width="100" height="20" rx="10" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="90" y="195" text-anchor="middle" font-size="11" font-weight="500" fill="#1e3a8a">DECIDER</text>
+
+    <line x1="180" y1="95" x2="180" y2="195" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="195" y="108" font-size="10" font-weight="500" fill="#64748b">3 roles officiels :</text>
+
+    <rect x="195" y="118" width="150" height="26" rx="13" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="270" y="135" text-anchor="middle" font-size="12" font-weight="500" fill="#0f172a">Mandant *</text>
+
+    <rect x="355" y="118" width="170" height="26" rx="13" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="440" y="135" text-anchor="middle" font-size="12" font-weight="500" fill="#0f172a">Comite de pilotage</text>
+
+    <rect x="195" y="152" width="330" height="26" rx="13" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5"/>
+    <text x="360" y="169" text-anchor="middle" font-size="12" font-weight="500" fill="#7f1d1d">Gestionnaire de la qualite et des risques (QRM)</text>
+
+    <text x="535" y="155" font-size="9" fill="#94a3b8">^ rapporte directement</text>
+    <text x="535" y="167" font-size="9" fill="#94a3b8">au Mandant (pas au CP)</text>
+  </g>
+
+  <g>
+    <rect x="20" y="214" width="680" height="140" rx="12" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5"/>
+    <text x="40" y="244" font-size="20" font-weight="500" fill="#0f172a">Conduite</text>
+    <text x="40" y="262" font-size="11" fill="#475569">Elabore les bases,</text>
+    <text x="40" y="276" font-size="11" fill="#475569">conduit le projet</text>
+    <text x="40" y="290" font-size="11" fill="#475569">et les collaborateurs</text>
+    <rect x="40" y="300" width="100" height="20" rx="10" fill="#ffffff" stroke="#fcd34d"/>
+    <text x="90" y="315" text-anchor="middle" font-size="11" font-weight="500" fill="#78350f">CONDUIRE</text>
+
+    <line x1="180" y1="225" x2="180" y2="345" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="195" y="238" font-size="10" font-weight="500" fill="#64748b">4 roles officiels :</text>
+
+    <rect x="195" y="248" width="150" height="26" rx="13" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="270" y="265" text-anchor="middle" font-size="12" font-weight="500" fill="#0f172a">Chef de projet *</text>
+
+    <rect x="355" y="248" width="170" height="26" rx="13" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="440" y="265" text-anchor="middle" font-size="12" font-weight="500" fill="#1e3a8a">Comite specialise</text>
+    <text x="535" y="265" font-size="9" fill="#94a3b8">^ EST projet HERMES</text>
+
+    <rect x="195" y="282" width="150" height="26" rx="13" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="270" y="299" text-anchor="middle" font-size="12" font-weight="500" fill="#0f172a">Assistance de projet</text>
+
+    <rect x="355" y="282" width="170" height="26" rx="13" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="440" y="299" text-anchor="middle" font-size="12" font-weight="500" fill="#0f172a">Chef de sous-projet</text>
+  </g>
+
+  <g>
+    <rect x="20" y="364" width="680" height="200" rx="12" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+    <text x="40" y="394" font-size="20" font-weight="500" fill="#0f172a">Execution</text>
+    <text x="40" y="412" font-size="11" fill="#475569">Elabore la solution</text>
+    <text x="40" y="426" font-size="11" fill="#475569">et garantit</text>
+    <text x="40" y="440" font-size="11" fill="#475569">la qualite</text>
+    <rect x="40" y="450" width="100" height="20" rx="10" fill="#ffffff" stroke="#86efac"/>
+    <text x="90" y="465" text-anchor="middle" font-size="11" font-weight="500" fill="#14532d">REALISER</text>
+
+    <line x1="180" y1="375" x2="180" y2="555" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="195" y="388" font-size="10" font-weight="500" fill="#64748b">9 roles officiels :</text>
+
+    <rect x="195" y="398" width="220" height="22" rx="11" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="305" y="413" text-anchor="middle" font-size="11" font-weight="500" fill="#0f172a">Representant des utilisateurs *</text>
+
+    <rect x="425" y="398" width="140" height="22" rx="11" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="495" y="413" text-anchor="middle" font-size="11" font-weight="500" fill="#0f172a">Business analyst</text>
+
+    <rect x="575" y="398" width="115" height="22" rx="11" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="632" y="413" text-anchor="middle" font-size="11" font-weight="500" fill="#0f172a">Developpeur</text>
+
+    <rect x="195" y="426" width="190" height="22" rx="11" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="290" y="441" text-anchor="middle" font-size="11" font-weight="500" fill="#7f1d1d">Architecte informatique</text>
+
+    <rect x="395" y="426" width="140" height="22" rx="11" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="465" y="441" text-anchor="middle" font-size="11" font-weight="500" fill="#7f1d1d">Responsable SIPD</text>
+
+    <rect x="545" y="426" width="145" height="22" rx="11" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="617" y="441" text-anchor="middle" font-size="11" font-weight="500" fill="#0f172a">Testeur</text>
+
+    <rect x="195" y="454" width="190" height="22" rx="11" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="290" y="469" text-anchor="middle" font-size="11" font-weight="500" fill="#0f172a">Responsable des tests</text>
+
+    <rect x="395" y="454" width="200" height="22" rx="11" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="495" y="469" text-anchor="middle" font-size="11" font-weight="500" fill="#0f172a">Responsable de l exploitation</text>
+
+    <rect x="605" y="454" width="85" height="22" rx="11" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="647" y="469" text-anchor="middle" font-size="9" font-weight="500" fill="#78350f">(Exploitant)</text>
+
+    <rect x="195" y="482" width="280" height="22" rx="11" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="335" y="497" text-anchor="middle" font-size="11" font-weight="500" fill="#1e3a8a">Organisation de mise en oeuvre</text>
+    <text x="485" y="497" font-size="9" fill="#94a3b8">^ groupe de roles, agile uniquement</text>
+
+    <text x="195" y="525" font-size="10" fill="#64748b">Roses cadres = noms officiels souvent confondus :</text>
+    <text x="195" y="540" font-size="10" fill="#64748b">- Architecte informatique (PAS de la solution / d affaires / d entreprise)</text>
+    <text x="195" y="555" font-size="10" fill="#64748b">- Responsable SIPD (PAS Specialiste securite ni ISDS)</text>
+  </g>
+
+  <text x="20" y="582" font-size="10" fill="#94a3b8">* = un des 3 roles obligatoires (Mandant + Chef de projet + Representant des utilisateurs) - tous au groupe Utilisateurs</text>
+
+  <rect x="20" y="592" width="680" height="90" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+  <text x="40" y="612" font-size="12" font-weight="500" fill="#7f1d1d">Pieges classiques d examen :</text>
+
+  <text x="40" y="630" font-size="10.5" fill="#475569">1) QRM (Gestionnaire QR) est en PILOTAGE - rapporte directement au Mandant (pas au Chef de projet)</text>
+  <text x="40" y="645" font-size="10.5" fill="#475569">2) Comite de PILOTAGE (niveau Pilotage) different du Comite SPECIALISE (niveau Conduite)</text>
+  <text x="40" y="660" font-size="10.5" fill="#475569">3) "Architecte de la solution" / "d affaires" / "d entreprise" / "technique" - INVENTES en HERMES 2022</text>
+  <text x="40" y="675" font-size="10.5" fill="#475569">4) "Specialiste metier" / "IT" / "achats" / "deploiement" / "ISDS" - INVENTES (utiliser noms officiels)</text>
+
+  <text x="360" y="700" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Decider - Conduire - Realiser</text>
+  <text x="360" y="715" text-anchor="middle" font-size="9.5" fill="#94a3b8">Source : hermes.admin.ch/fr/gestion-de-projet/roles.html - Tableau 19</text>
+</svg>

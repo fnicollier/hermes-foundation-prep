@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 640" xmlns="http://www.w3.org/2000/svg" role="img" font-family="-apple-system, BlinkMacSystemFont, sans-serif">
+  <title>D-E - les 2 types de resultats HERMES 2022</title>
+  <desc>HERMES 2022 distingue 2 types de resultats : Document et Etat atteint. Le Produit (la solution) n est PAS un type officiel.</desc>
+  <rect width="720" height="640" fill="#ffffff"/>
+
+  <text x="360" y="32" text-anchor="middle" font-size="22" font-weight="500" fill="#0f172a">D - E</text>
+  <text x="360" y="52" text-anchor="middle" font-size="12" fill="#475569">Les 2 types de resultats HERMES 2022 - Documents et Etats</text>
+  <line x1="80" y1="68" x2="640" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+
+  <g>
+    <rect x="20" y="84" width="335" height="320" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="190" cy="125" r="30" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="190" y="137" text-anchor="middle" font-size="34" font-weight="500" fill="#1e293b">D</text>
+    <text x="190" y="180" text-anchor="middle" font-size="17" font-weight="500" fill="#0f172a">Document</text>
+    <rect x="100" y="192" width="180" height="26" rx="13" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="190" y="209" text-anchor="middle" font-size="12" font-weight="500" fill="#1e3a8a">ECRIT</text>
+    <text x="190" y="234" text-anchor="middle" font-size="11" fill="#475569">Texte structure - elabore a partir</text>
+    <text x="190" y="250" text-anchor="middle" font-size="11" fill="#475569">d un modele de document fourni</text>
+
+    <line x1="40" y1="262" x2="335" y2="262" stroke="#e2e8f0" stroke-width="0.5"/>
+
+    <text x="35" y="280" font-size="10.5" font-weight="500" fill="#64748b">Exemples officiels :</text>
+    <text x="35" y="298" font-size="10.5" fill="#475569">- Mandat d execution</text>
+    <text x="35" y="314" font-size="10.5" fill="#475569">- Mandat d initialisation du projet</text>
+    <text x="35" y="330" font-size="10.5" fill="#475569">- Etude</text>
+    <text x="35" y="346" font-size="10.5" fill="#475569">- Plan de gestion du projet</text>
+    <text x="35" y="362" font-size="10.5" fill="#475569">- Architecture de la solution</text>
+    <text x="35" y="378" font-size="10.5" fill="#475569">- Concept SIPD</text>
+    <text x="35" y="394" font-size="10.5" fill="#475569">- Listes de controle (sous-categorie)</text>
+  </g>
+
+  <g>
+    <rect x="365" y="84" width="335" height="320" rx="12" fill="#ffffff" stroke="#fcd34d" stroke-width="2.5"/>
+    <circle cx="535" cy="125" r="30" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5"/>
+    <text x="535" y="137" text-anchor="middle" font-size="34" font-weight="500" fill="#1e293b">E</text>
+    <text x="535" y="180" text-anchor="middle" font-size="17" font-weight="500" fill="#0f172a">Etat atteint</text>
+    <rect x="445" y="192" width="180" height="26" rx="13" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="535" y="209" text-anchor="middle" font-size="12" font-weight="500" fill="#78350f">ATTEINT</text>
+    <text x="535" y="234" text-anchor="middle" font-size="11" fill="#475569">Situation formelle a un instant</text>
+    <text x="535" y="250" text-anchor="middle" font-size="11" fill="#475569">donne - inclut tous les jalons</text>
+
+    <line x1="385" y1="262" x2="685" y2="262" stroke="#e2e8f0" stroke-width="0.5"/>
+
+    <text x="380" y="280" font-size="10.5" font-weight="500" fill="#64748b">Exemples officiels :</text>
+    <text x="380" y="298" font-size="10.5" fill="#475569">- Jalon Suite du projet</text>
+    <text x="380" y="314" font-size="10.5" fill="#475569">- Jalon Liberation de la phase</text>
+    <text x="380" y="330" font-size="10.5" fill="#475569">- Jalon Cloture du projet</text>
+    <text x="380" y="346" font-size="10.5" fill="#475569">- Exploitation activee</text>
+    <text x="380" y="362" font-size="10.5" fill="#475569">- Infrastructure realisee</text>
+    <text x="380" y="378" font-size="10.5" fill="#475569">- Produit active / Systeme active</text>
+    <text x="380" y="394" font-size="10.5" fill="#475569">- Organisation activee</text>
+  </g>
+
+  <rect x="20" y="420" width="680" height="80" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+  <text x="40" y="442" font-size="13" font-weight="500" fill="#7f1d1d">ATTENTION - Piege a memoriser :</text>
+  <text x="40" y="462" font-size="11" fill="#475569">"Produit" / "Systeme" / "Solution" NE SONT PAS des types de resultats HERMES.</text>
+  <text x="40" y="478" font-size="11" fill="#475569">La solution proprement dite (logiciel, infrastructure, organisation) est EXCLUE de la methode</text>
+  <text x="40" y="494" font-size="11" fill="#475569">- elle est le but du projet, pas un element interne de HERMES.</text>
+
+  <rect x="20" y="510" width="680" height="60" rx="8" fill="#f0f9ff" stroke="#7dd3fc"/>
+  <text x="40" y="530" font-size="11" font-weight="500" fill="#0c4a6e">Test mental rapide pour identifier le type :</text>
+  <text x="40" y="548" font-size="11" fill="#475569">- Y a-t-il un modele de document ? Peut-on l imprimer ? -&gt; Document</text>
+  <text x="40" y="564" font-size="11" fill="#475569">- Est-ce une situation atteinte (jalon, etape franchie, infrastructure realisee) ? -&gt; Etat atteint</text>
+
+  <rect x="60" y="582" width="600" height="40" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="360" y="598" text-anchor="middle" font-size="10.5" fill="#475569">Mantra de memorisation</text>
+  <text x="360" y="615" text-anchor="middle" font-size="14" font-weight="500" fill="#0f172a">Ecrit - Atteint</text>
+
+  <text x="360" y="635" text-anchor="middle" font-size="9.5" fill="#94a3b8">Source : hermes.admin.ch/fr/gestion-de-projet/resultats.html</text>
+</svg>

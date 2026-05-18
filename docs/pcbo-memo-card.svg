@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 700" xmlns="http://www.w3.org/2000/svg" role="img" font-family="-apple-system, BlinkMacSystemFont, sans-serif">
+  <title>P-C-B-O - les 4 modules obligatoires HERMES 2022</title>
+  <desc>Pilotage du projet, Conduite du projet, Bases du projet, Organisation du deploiement. Modules obligatoires dans tout projet HERMES, avec activation variable selon la phase.</desc>
+  <rect width="720" height="700" fill="#ffffff"/>
+
+  <text x="360" y="32" text-anchor="middle" font-size="22" font-weight="500" fill="#0f172a">P - C - B - O</text>
+  <text x="360" y="52" text-anchor="middle" font-size="12" fill="#475569">Les 4 modules obligatoires HERMES 2022 (noms officiels)</text>
+  <line x1="80" y1="68" x2="640" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+
+  <g>
+    <rect x="20" y="84" width="160" height="260" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="100" cy="120" r="28" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="100" y="131" text-anchor="middle" font-size="32" font-weight="500" fill="#1e293b">P</text>
+    <text x="100" y="170" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Pilotage</text>
+    <text x="100" y="184" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">du projet</text>
+    <rect x="40" y="194" width="120" height="22" rx="11" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="100" y="209" text-anchor="middle" font-size="11" font-weight="500" fill="#1e3a8a">DECIDER</text>
+    <text x="100" y="232" text-anchor="middle" font-size="10.5" fill="#475569">Strategie + jalons</text>
+    <line x1="40" y1="244" x2="160" y2="244" stroke="#e2e8f0" stroke-width="0.5"/>
+    <text x="35" y="262" font-size="10.5" fill="#64748b">Jalons (liberation)</text>
+    <text x="35" y="278" font-size="10.5" fill="#64748b">Liste Decisions pilotage</text>
+    <text x="35" y="294" font-size="10.5" fill="#64748b">Allocation ressources</text>
+    <text x="35" y="310" font-size="10.5" fill="#64748b">Mandant pilote</text>
+    <rect x="32" y="318" width="136" height="20" rx="6" fill="#dcfce7" stroke="#86efac"/>
+    <text x="100" y="332" text-anchor="middle" font-size="9.5" font-weight="500" fill="#14532d">TOUTES les phases</text>
+  </g>
+
+  <g>
+    <rect x="200" y="84" width="160" height="260" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="280" cy="120" r="28" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5"/>
+    <text x="280" y="131" text-anchor="middle" font-size="32" font-weight="500" fill="#1e293b">C</text>
+    <text x="280" y="170" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Conduite</text>
+    <text x="280" y="184" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">du projet</text>
+    <rect x="220" y="194" width="120" height="22" rx="11" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="280" y="209" text-anchor="middle" font-size="11" font-weight="500" fill="#78350f">MANAGER</text>
+    <text x="280" y="232" text-anchor="middle" font-size="10.5" fill="#475569">Equipe + planning</text>
+    <line x1="220" y1="244" x2="340" y2="244" stroke="#e2e8f0" stroke-width="0.5"/>
+    <text x="215" y="262" font-size="10.5" fill="#64748b">Plan de gestion projet</text>
+    <text x="215" y="278" font-size="10.5" fill="#64748b">Rapport sur etat projet</text>
+    <text x="215" y="294" font-size="10.5" fill="#64748b">Liste Decisions conduite</text>
+    <text x="215" y="310" font-size="10.5" fill="#64748b">Chef de projet conduit</text>
+    <rect x="212" y="318" width="136" height="20" rx="6" fill="#dcfce7" stroke="#86efac"/>
+    <text x="280" y="332" text-anchor="middle" font-size="9.5" font-weight="500" fill="#14532d">TOUTES les phases</text>
+  </g>
+
+  <g>
+    <rect x="380" y="84" width="160" height="260" rx="12" fill="#ffffff" stroke="#fca5a5" stroke-width="2.5"/>
+    <circle cx="460" cy="120" r="28" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5"/>
+    <text x="460" y="131" text-anchor="middle" font-size="32" font-weight="500" fill="#1e293b">B</text>
+    <text x="460" y="170" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Bases</text>
+    <text x="460" y="184" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">du projet</text>
+    <rect x="400" y="194" width="120" height="22" rx="11" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="460" y="209" text-anchor="middle" font-size="11" font-weight="500" fill="#7f1d1d">GARANTIR</text>
+    <text x="460" y="232" text-anchor="middle" font-size="10.5" fill="#475569">Exigences transverses</text>
+    <line x1="400" y1="244" x2="520" y2="244" stroke="#e2e8f0" stroke-width="0.5"/>
+    <text x="395" y="262" font-size="10.5" fill="#64748b">Analyse bases legales</text>
+    <text x="395" y="278" font-size="10.5" fill="#64748b">Besoins de protection</text>
+    <text x="395" y="294" font-size="10.5" fill="#64748b">Concept SIPD</text>
+    <text x="395" y="310" font-size="10.5" fill="#64748b">Durabilite</text>
+    <rect x="392" y="318" width="136" height="20" rx="6" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="460" y="332" text-anchor="middle" font-size="9.5" font-weight="500" fill="#78350f">UNIQUEMENT Init !</text>
+  </g>
+
+  <g>
+    <rect x="560" y="84" width="160" height="260" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="640" cy="120" r="28" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+    <text x="640" y="131" text-anchor="middle" font-size="32" font-weight="500" fill="#1e293b">O</text>
+    <text x="640" y="170" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Organisation</text>
+    <text x="640" y="184" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">du deploiement</text>
+    <rect x="580" y="194" width="120" height="22" rx="11" fill="#dcfce7" stroke="#86efac"/>
+    <text x="640" y="209" text-anchor="middle" font-size="11" font-weight="500" fill="#14532d">INTRODUIRE</text>
+    <text x="640" y="232" text-anchor="middle" font-size="10.5" fill="#475569">Mise en service</text>
+    <line x1="580" y1="244" x2="700" y2="244" stroke="#e2e8f0" stroke-width="0.5"/>
+    <text x="575" y="262" font-size="10.5" fill="#64748b">Concept de deploiement</text>
+    <text x="575" y="278" font-size="10.5" fill="#64748b">Formation utilisateurs</text>
+    <text x="575" y="294" font-size="10.5" fill="#64748b">Migration</text>
+    <text x="575" y="310" font-size="10.5" fill="#64748b">Mesures deploiement</text>
+    <rect x="572" y="318" width="136" height="20" rx="6" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="640" y="332" text-anchor="middle" font-size="9.5" font-weight="500" fill="#78350f">Conc/Real/Depl/Mise en oeuvre</text>
+  </g>
+
+  <text x="20" y="370" font-size="13" font-weight="500" fill="#0f172a">Matrice d activation par phase (source : tableau officiel hermes.admin.ch)</text>
+
+  <g font-size="10">
+    <rect x="20" y="380" width="160" height="28" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="100" y="398" text-anchor="middle" font-weight="500" fill="#0f172a">Module</text>
+
+    <rect x="180" y="380" width="80" height="28" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="220" y="398" text-anchor="middle" font-weight="500" fill="#1e3a8a">Init</text>
+
+    <rect x="260" y="380" width="80" height="28" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="300" y="398" text-anchor="middle" font-weight="500" fill="#1e3a8a">Conc</text>
+
+    <rect x="340" y="380" width="80" height="28" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="380" y="398" text-anchor="middle" font-weight="500" fill="#1e3a8a">Real</text>
+
+    <rect x="420" y="380" width="80" height="28" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="460" y="398" text-anchor="middle" font-weight="500" fill="#1e3a8a">Depl</text>
+
+    <rect x="500" y="380" width="100" height="28" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="550" y="398" text-anchor="middle" font-weight="500" fill="#78350f">Mise en oeuvre</text>
+
+    <rect x="600" y="380" width="80" height="28" fill="#dcfce7" stroke="#86efac"/>
+    <text x="640" y="398" text-anchor="middle" font-weight="500" fill="#14532d">Cloture</text>
+  </g>
+
+  <g font-size="10.5">
+    <rect x="20" y="408" width="160" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="30" y="426" fill="#0f172a">Pilotage du projet</text>
+    <rect x="180" y="408" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="220" y="426" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="260" y="408" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="300" y="426" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="340" y="408" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="380" y="426" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="420" y="408" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="460" y="426" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="500" y="408" width="100" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="550" y="426" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="600" y="408" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="640" y="426" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+  </g>
+
+  <g font-size="10.5">
+    <rect x="20" y="436" width="160" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="30" y="454" fill="#0f172a">Conduite du projet</text>
+    <rect x="180" y="436" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="220" y="454" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="260" y="436" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="300" y="454" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="340" y="436" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="380" y="454" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="420" y="436" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="460" y="454" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="500" y="436" width="100" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="550" y="454" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="600" y="436" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="640" y="454" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+  </g>
+
+  <g font-size="10.5">
+    <rect x="20" y="464" width="160" height="28" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="30" y="482" fill="#0f172a">Bases du projet</text>
+    <rect x="180" y="464" width="80" height="28" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="220" y="482" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="260" y="464" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="300" y="482" text-anchor="middle" fill="#94a3b8">-</text>
+    <rect x="340" y="464" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="380" y="482" text-anchor="middle" fill="#94a3b8">-</text>
+    <rect x="420" y="464" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="460" y="482" text-anchor="middle" fill="#94a3b8">-</text>
+    <rect x="500" y="464" width="100" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="550" y="482" text-anchor="middle" fill="#94a3b8">-</text>
+    <rect x="600" y="464" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="640" y="482" text-anchor="middle" fill="#94a3b8">-</text>
+  </g>
+
+  <g font-size="10.5">
+    <rect x="20" y="492" width="160" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="30" y="510" fill="#0f172a">Organisation du deploiement</text>
+    <rect x="180" y="492" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="220" y="510" text-anchor="middle" fill="#94a3b8">-</text>
+    <rect x="260" y="492" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="300" y="510" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="340" y="492" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="380" y="510" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="420" y="492" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="460" y="510" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="500" y="492" width="100" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="550" y="510" text-anchor="middle" font-weight="500" fill="#14532d">X</text>
+    <rect x="600" y="492" width="80" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="640" y="510" text-anchor="middle" fill="#94a3b8">-</text>
+  </g>
+
+  <rect x="20" y="540" width="680" height="50" rx="8" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="40" y="560" font-size="11" font-weight="500" fill="#7c2d12">3 surprises clefs a memoriser :</text>
+  <text x="40" y="576" font-size="10.5" fill="#475569">1) Bases du projet est SEULEMENT en Initialisation  -  2) Organisation du deploiement n est PAS en Init ni Cloture  -  3) Pilotage et Conduite sont en continu sur toutes les phases</text>
+
+  <rect x="60" y="605" width="600" height="50" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="360" y="625" text-anchor="middle" font-size="10.5" fill="#475569">Mantra de memorisation</text>
+  <text x="360" y="645" text-anchor="middle" font-size="14" font-weight="500" fill="#0f172a">Decider - Manager - Garantir - Introduire</text>
+
+  <text x="360" y="678" text-anchor="middle" font-size="9.5" fill="#94a3b8">Source : hermes.admin.ch/fr/gestion-de-projet/modules.html - tableau 3</text>
+</svg>

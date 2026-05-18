@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 620" xmlns="http://www.w3.org/2000/svg" role="img" font-family="-apple-system, BlinkMacSystemFont, sans-serif">
+  <title>Les 5 phases HERMES 2022 (classique) + 3 phases agile</title>
+  <desc>HERMES 2022 a 5 phases en approche classique et 3 phases en approche agile. Initialisation et Cloture sont communes aux deux approches.</desc>
+  <rect width="720" height="620" fill="#ffffff"/>
+
+  <text x="360" y="32" text-anchor="middle" font-size="20" font-weight="500" fill="#0f172a">Les phases d un projet HERMES 2022</text>
+  <text x="360" y="52" text-anchor="middle" font-size="11" fill="#475569">5 phases classique - 3 phases agile - Initialisation et Cloture communes</text>
+  <line x1="80" y1="68" x2="640" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+
+  <text x="20" y="88" font-size="11" font-weight="500" fill="#475569">Approche classique - 5 phases</text>
+
+  <g>
+    <rect x="20" y="96" width="128" height="270" rx="10" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <circle cx="84" cy="128" r="22" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="84" y="137" text-anchor="middle" font-size="24" font-weight="500" fill="#1e293b">I</text>
+    <text x="84" y="172" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Initialisation</text>
+    <rect x="32" y="180" width="104" height="20" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="84" y="194" text-anchor="middle" font-size="10" font-weight="500" fill="#1e3a8a">CLARIFIER</text>
+    <text x="84" y="214" text-anchor="middle" font-size="9.5" fill="#64748b">Debut du projet</text>
+    <line x1="32" y1="222" x2="136" y2="222" stroke="#e2e8f0" stroke-width="0.5"/>
+    <text x="28" y="240" font-size="9.5" fill="#475569">- Mandat de projet</text>
+    <text x="28" y="256" font-size="9.5" fill="#475569">- Etude faisabilite</text>
+    <text x="28" y="272" font-size="9.5" fill="#475569">- Scenario choisi</text>
+    <text x="28" y="288" font-size="9.5" fill="#475569">- Organisation projet</text>
+    <rect x="32" y="320" width="112" height="38" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="84" y="335" text-anchor="middle" font-size="8.5" fill="#94a3b8">jalon de fin</text>
+    <text x="84" y="350" text-anchor="middle" font-size="9" font-weight="500" fill="#0f172a">Liberation Conception</text>
+  </g>
+
+  <g>
+    <rect x="158" y="96" width="128" height="270" rx="10" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <circle cx="222" cy="128" r="22" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="222" y="137" text-anchor="middle" font-size="24" font-weight="500" fill="#1e293b">C</text>
+    <text x="222" y="172" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Conception</text>
+    <rect x="170" y="180" width="104" height="20" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="222" y="194" text-anchor="middle" font-size="10" font-weight="500" fill="#1e3a8a">CONCEVOIR</text>
+    <text x="222" y="214" text-anchor="middle" font-size="9.5" fill="#64748b">Creation solution</text>
+    <line x1="170" y1="222" x2="274" y2="222" stroke="#e2e8f0" stroke-width="0.5"/>
+    <text x="166" y="240" font-size="9.5" fill="#475569">- Plan de projet</text>
+    <text x="166" y="256" font-size="9.5" fill="#475569">- Cahier des charges</text>
+    <text x="166" y="272" font-size="9.5" fill="#475569">- Architecture</text>
+    <text x="166" y="288" font-size="9.5" fill="#475569">- Concept d organisation</text>
+    <rect x="166" y="320" width="112" height="38" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="222" y="335" text-anchor="middle" font-size="8.5" fill="#94a3b8">jalon de fin</text>
+    <text x="222" y="350" text-anchor="middle" font-size="9" font-weight="500" fill="#0f172a">Liberation Realisation</text>
+  </g>
+
+  <g>
+    <rect x="296" y="96" width="128" height="270" rx="10" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <circle cx="360" cy="128" r="22" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="360" y="137" text-anchor="middle" font-size="24" font-weight="500" fill="#1e293b">R</text>
+    <text x="360" y="172" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Realisation</text>
+    <rect x="308" y="180" width="104" height="20" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="360" y="194" text-anchor="middle" font-size="10" font-weight="500" fill="#1e3a8a">CONSTRUIRE</text>
+    <text x="360" y="214" text-anchor="middle" font-size="9.5" fill="#64748b">Creation solution</text>
+    <line x1="308" y1="222" x2="412" y2="222" stroke="#e2e8f0" stroke-width="0.5"/>
+    <text x="304" y="240" font-size="9.5" fill="#475569">- Produit (logiciel, infra)</text>
+    <text x="304" y="256" font-size="9.5" fill="#475569">- Tests et recette</text>
+    <text x="304" y="272" font-size="9.5" fill="#475569">- Doc. produit</text>
+    <text x="304" y="288" font-size="9.5" fill="#475569">- Preparation deploiement</text>
+    <rect x="304" y="320" width="112" height="38" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="360" y="335" text-anchor="middle" font-size="8.5" fill="#94a3b8">jalon de fin</text>
+    <text x="360" y="350" text-anchor="middle" font-size="9" font-weight="500" fill="#0f172a">Liberation Deploiement</text>
+  </g>
+
+  <g>
+    <rect x="434" y="96" width="128" height="270" rx="10" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <circle cx="498" cy="128" r="22" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="498" y="137" text-anchor="middle" font-size="24" font-weight="500" fill="#1e293b">D</text>
+    <text x="498" y="172" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Deploiement</text>
+    <rect x="446" y="180" width="104" height="20" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="498" y="194" text-anchor="middle" font-size="10" font-weight="500" fill="#1e3a8a">ACTIVER</text>
+    <text x="498" y="214" text-anchor="middle" font-size="9.5" fill="#64748b">Creation solution</text>
+    <line x1="446" y1="222" x2="550" y2="222" stroke="#e2e8f0" stroke-width="0.5"/>
+    <text x="442" y="240" font-size="9.5" fill="#475569">- Mise en service</text>
+    <text x="442" y="256" font-size="9.5" fill="#475569">- Formation utilisateurs</text>
+    <text x="442" y="272" font-size="9.5" fill="#475569">- Migration / SIPD</text>
+    <text x="442" y="288" font-size="9.5" fill="#475569">- Exploitation activee</text>
+    <rect x="442" y="320" width="112" height="38" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="498" y="335" text-anchor="middle" font-size="8.5" fill="#94a3b8">jalon de fin</text>
+    <text x="498" y="350" text-anchor="middle" font-size="9" font-weight="500" fill="#0f172a">Decision de reception</text>
+  </g>
+
+  <g>
+    <rect x="572" y="96" width="128" height="270" rx="10" fill="#ffffff" stroke="#86efac" stroke-width="2.5"/>
+    <circle cx="636" cy="128" r="22" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+    <text x="636" y="137" text-anchor="middle" font-size="24" font-weight="500" fill="#1e293b">C</text>
+    <text x="636" y="172" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Cloture</text>
+    <rect x="584" y="180" width="104" height="20" rx="10" fill="#dcfce7" stroke="#86efac"/>
+    <text x="636" y="194" text-anchor="middle" font-size="10" font-weight="500" fill="#14532d">CLOTURER</text>
+    <text x="636" y="214" text-anchor="middle" font-size="9.5" fill="#64748b">Fin du projet</text>
+    <line x1="584" y1="222" x2="688" y2="222" stroke="#e2e8f0" stroke-width="0.5"/>
+    <text x="580" y="240" font-size="9.5" fill="#475569">- Evaluation finale</text>
+    <text x="580" y="256" font-size="9.5" fill="#475569">- Archivage doc.</text>
+    <text x="580" y="272" font-size="9.5" fill="#475569">- Dissolution org. projet</text>
+    <text x="580" y="288" font-size="9.5" fill="#475569">- Transition app./exploit.</text>
+    <rect x="572" y="320" width="112" height="38" rx="6" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+    <text x="636" y="335" text-anchor="middle" font-size="8.5" fill="#94a3b8">fin</text>
+    <text x="636" y="350" text-anchor="middle" font-size="9" font-weight="500" fill="#14532d">Projet clos</text>
+  </g>
+
+  <g fill="#94a3b8">
+    <polygon points="150,128 156,132 150,136"/>
+    <polygon points="288,128 294,132 288,136"/>
+    <polygon points="426,128 432,132 426,136"/>
+    <polygon points="564,128 570,132 564,136"/>
+  </g>
+
+  <text x="20" y="392" font-size="11" font-weight="500" fill="#475569">Approche agile - 3 phases (memes phases debut + fin, creation de la solution unique)</text>
+
+  <g>
+    <rect x="20" y="400" width="120" height="48" rx="8" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="80" y="420" text-anchor="middle" font-size="12" font-weight="500" fill="#0f172a">Initialisation</text>
+    <text x="80" y="436" text-anchor="middle" font-size="9.5" fill="#64748b">(identique classique)</text>
+    <polygon points="148,420 158,425 148,430" fill="#94a3b8"/>
+    <rect x="170" y="400" width="340" height="48" rx="8" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5"/>
+    <text x="340" y="420" text-anchor="middle" font-size="13" font-weight="500" fill="#0f172a">Mise en oeuvre</text>
+    <text x="340" y="436" text-anchor="middle" font-size="9.5" fill="#64748b">(remplace Conception + Realisation + Deploiement)</text>
+    <polygon points="518,420 528,425 518,430" fill="#94a3b8"/>
+    <rect x="540" y="400" width="160" height="48" rx="8" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+    <text x="620" y="420" text-anchor="middle" font-size="12" font-weight="500" fill="#0f172a">Cloture</text>
+    <text x="620" y="436" text-anchor="middle" font-size="9.5" fill="#64748b">(identique classique)</text>
+  </g>
+
+  <rect x="20" y="465" width="680" height="58" rx="8" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="40" y="485" font-size="11" font-weight="500" fill="#7c2d12">Regle absolue :</text>
+  <text x="40" y="503" font-size="11" fill="#0f172a">Tout projet HERMES commence par Initialisation et se termine par Cloture.</text>
+  <text x="40" y="518" font-size="11" fill="#475569">Vrai pour les deux approches (classique ET agile) - ces 2 phases sont les seules communes.</text>
+
+  <rect x="60" y="535" width="600" height="48" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="360" y="554" text-anchor="middle" font-size="10.5" fill="#475569">Mantra (classique)</text>
+  <text x="360" y="572" text-anchor="middle" font-size="14" font-weight="500" fill="#0f172a">Clarifier - Concevoir - Construire - Activer - Cloturer</text>
+
+  <text x="360" y="600" text-anchor="middle" font-size="9.5" fill="#94a3b8">Source officielle : hermes.admin.ch - Phases - Manuel HERMES 2022 (Chancellerie federale)</text>
+  <text x="360" y="614" text-anchor="middle" font-size="9" fill="#94a3b8">Jalons positionnes au debut et a la fin de chaque phase (quality gates)</text>
+</svg>
