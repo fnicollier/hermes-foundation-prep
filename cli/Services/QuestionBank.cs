@@ -10,7 +10,7 @@ namespace HermesQuizCli.Services;
 /// </summary>
 public sealed class QuestionBank
 {
-    private readonly IReadOnlyList<Question> _questions;
+    private readonly List<Question> _questions;
 
     public QuestionBank()
     {
@@ -35,6 +35,11 @@ public sealed class QuestionBank
             .GroupBy(q => q.Objectif.Split('.')[0])
             .ToDictionary(g => g.Key, g => g.Count());
 
+    public IReadOnlyDictionary<string, int> CountByTopic() =>
+        _questions
+            .GroupBy(q => q.Topic)
+            .ToDictionary(g => g.Key, g => g.Count());
+
     public IReadOnlyList<Question> Pick(QuizConfig config)
     {
         var rng = config.Seed.HasValue ? new Random(config.Seed.Value) : Random.Shared;
@@ -48,7 +53,12 @@ public sealed class QuestionBank
                 q.Objectif.StartsWith(config.ObjectifFilter + ".", StringComparison.OrdinalIgnoreCase));
         }
 
-        if (!string.IsNullOrEmpty(config.TopicFilter))
+        if (config.TopicGroup is { Count: > 0 } group)
+        {
+            pool = pool.Where(q =>
+                group.Any(t => q.Topic.Equals(t, StringComparison.OrdinalIgnoreCase)));
+        }
+        else if (!string.IsNullOrEmpty(config.TopicFilter))
         {
             pool = pool.Where(q =>
                 q.Topic.Contains(config.TopicFilter, StringComparison.OrdinalIgnoreCase));
@@ -70,7 +80,7 @@ public sealed class QuestionBank
     /// Construit un examen blanc de 40 questions avec la distribution officielle :
     /// Obj 1 = 12, Obj 2 = 8, Obj 3 = 10, Obj 4 = 10.
     /// </summary>
-    private static IReadOnlyList<Question> BuildMockExam(List<Question> pool, Random rng)
+    private static List<Question> BuildMockExam(List<Question> pool, Random rng)
     {
         var distribution = new (string ObjPrefix, int Count)[]
         {
@@ -84,7 +94,7 @@ public sealed class QuestionBank
         foreach (var (prefix, count) in distribution)
         {
             var fromObj = pool
-                .Where(q => q.Objectif.StartsWith(prefix + ".") || q.Objectif == prefix)
+                .Where(q => q.Objectif.StartsWith(prefix + ".", StringComparison.Ordinal) || q.Objectif == prefix)
                 .OrderBy(_ => rng.Next())
                 .Take(count)
                 .ToList();
