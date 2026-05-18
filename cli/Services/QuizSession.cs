@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using HermesQuizCli.Models;
 using Spectre.Console;
 
@@ -14,31 +15,44 @@ public sealed class QuizSession
     private readonly Dictionary<string, (int Correct, int Total)> _byObjectif = new();
     private readonly Dictionary<string, (int Correct, int Total)> _byTopic = new();
     private readonly List<Question> _missedQuestions = new();
+    private readonly Stopwatch _stopwatch = new();
+    private readonly TimeSpan _totalTime;
     private int _correct;
     private int _answered;
+    private bool _timeExpired;
 
     public QuizSession(IReadOnlyList<Question> questions, QuizConfig config)
     {
         _questions = questions;
         _config = config;
+        _totalTime = TimeSpan.FromSeconds(questions.Count * 90);
     }
 
     public void Run()
     {
         AnsiConsole.Write(new FigletText("HERMES Quiz").Color(Color.Cyan1));
-        AnsiConsole.MarkupLine($"[grey]Banque chargée : {_questions.Count} questions[/]");
-        AnsiConsole.MarkupLine("[grey]Tape la lettre de ta réponse, ou 's' pour stopper, 'q' pour passer.[/]");
+        AnsiConsole.MarkupLine($"[grey]Banque chargée : {_questions.Count} questions · Durée : {FormatTime(_totalTime)}[/]");
+        AnsiConsole.MarkupLine("[grey]Appuie sur a/b/c/d pour répondre · q = passer · s = arrêter[/]");
         AnsiConsole.WriteLine();
+
+        _stopwatch.Start();
 
         for (int i = 0; i < _questions.Count; i++)
         {
+            if (_stopwatch.Elapsed >= _totalTime)
+            {
+                AnsiConsole.MarkupLine("[red bold]⏱ Temps écoulé — fin du quiz.[/]");
+                AnsiConsole.WriteLine();
+                _timeExpired = true;
+                break;
+            }
+
             var question = _questions[i];
             if (!AskOne(question, i + 1, _questions.Count))
-            {
-                break; // user stopped
-            }
+                break;
         }
 
+        _stopwatch.Stop();
         ShowSummary();
     }
 
@@ -56,7 +70,13 @@ public sealed class QuizSession
         AnsiConsole.MarkupLine($"  [bold]d)[/] {Markup.Escape(q.OptionD)}");
         AnsiConsole.WriteLine();
 
-        var answer = ReadAnswer();
+        var answer = ReadAnswerWithLiveTimer();
+
+        if (answer == "timeout")
+        {
+            _timeExpired = true;
+            return false;
+        }
 
         if (answer == "s")
         {
@@ -71,7 +91,7 @@ public sealed class QuizSession
         if (answer == "q")
         {
             AnsiConsole.MarkupLine(
-                $"[grey]Question sautée. Bonne réponse : [bold]{q.Answer.ToUpper()}[/] — " +
+                $"[grey]Question sautée. Bonne réponse : [bold]{q.Answer.ToUpperInvariant()}[/] — " +
                 $"{Markup.Escape(q.GetOption(q.Answer))}[/]");
             AnsiConsole.MarkupLine($"[grey italic]{Markup.Escape(q.Explanation)} (manuel p. {q.Page})[/]");
             _byObjectif[q.Objectif] = (objStat.Correct, objStat.Total + 1);
@@ -96,7 +116,7 @@ public sealed class QuizSession
         {
             _answered++;
             AnsiConsole.MarkupLine(
-                $"[red bold]✗ Faux.[/] La bonne réponse était [bold]{q.Answer.ToUpper()}[/] : " +
+                $"[red bold]✗ Faux.[/] La bonne réponse était [bold]{q.Answer.ToUpperInvariant()}[/] : " +
                 $"[italic]{Markup.Escape(q.GetOption(q.Answer))}[/]");
             AnsiConsole.MarkupLine(
                 $"[grey italic]{Markup.Escape(q.Explanation)} (manuel p. {q.Page})[/]");
@@ -111,24 +131,61 @@ public sealed class QuizSession
         return true;
     }
 
-    private static string ReadAnswer()
+    private static string FormatTime(TimeSpan t) =>
+        t.TotalHours >= 1
+            ? t.ToString(@"h\:mm\:ss", System.Globalization.CultureInfo.InvariantCulture)
+            : t.ToString(@"mm\:ss", System.Globalization.CultureInfo.InvariantCulture);
+
+    private string ReadAnswerWithLiveTimer()
     {
-        while (true)
+        WriteTimerPrompt(_totalTime - _stopwatch.Elapsed);
+
+        using var stopEvent = new ManualResetEventSlim(false);
+        var timerThread = new Thread(() =>
         {
-            var input = AnsiConsole.Ask<string>("[cyan]Ta réponse[/] :")
-                .Trim()
-                .ToLowerInvariant();
-
-            // Accept "a", "b", "c", "d", or full forms like "la a", "réponse b"
-            var lastChar = input.LastOrDefault(c => c is 'a' or 'b' or 'c' or 'd' or 's' or 'q');
-            if (lastChar != default)
+            while (!stopEvent.Wait(1000))
             {
-                return lastChar.ToString();
+                var r = _totalTime - _stopwatch.Elapsed;
+                Console.Write("\r\x1b[2K");
+                WriteTimerPrompt(r < TimeSpan.Zero ? TimeSpan.Zero : r);
             }
+        }) { IsBackground = true };
+        timerThread.Start();
 
-            AnsiConsole.MarkupLine(
-                "[red]Réponse invalide.[/] [grey]Tape a, b, c, d, 's' pour stop, ou 'q' pour passer.[/]");
+        bool timedOut = false;
+        char answer = '\0';
+        while (answer == '\0' && !timedOut)
+        {
+            if (_stopwatch.Elapsed >= _totalTime) { timedOut = true; break; }
+            if (Console.KeyAvailable)
+            {
+                var k = Console.ReadKey(intercept: true);
+                var c = char.ToLowerInvariant(k.KeyChar);
+                if (c is 'a' or 'b' or 'c' or 'd' or 's' or 'q') answer = c;
+            }
+            else Thread.Sleep(50);
         }
+
+        stopEvent.Set();
+        timerThread.Join(1500);
+
+        var remaining = _totalTime - _stopwatch.Elapsed;
+        if (remaining < TimeSpan.Zero) remaining = TimeSpan.Zero;
+        var col = remaining.TotalMinutes switch { > 15 => "\x1b[32m", > 5 => "\x1b[33m", _ => "\x1b[31m" };
+
+        Console.Write("\r\x1b[2K");
+        if (timedOut)
+            Console.WriteLine($"\x1b[31m⏱ 00:00\x1b[0m  \x1b[36mTa réponse :\x1b[0m [temps écoulé]");
+        else
+            Console.WriteLine($"{col}⏱ {FormatTime(remaining)}\x1b[0m  \x1b[36mTa réponse :\x1b[0m \x1b[1m{char.ToUpperInvariant(answer)}\x1b[0m");
+
+        return timedOut ? "timeout" : answer.ToString();
+    }
+
+    private static void WriteTimerPrompt(TimeSpan remaining)
+    {
+        var col = remaining.TotalMinutes switch { > 15 => "\x1b[32m", > 5 => "\x1b[33m", _ => "\x1b[31m" };
+        Console.Write($"{col}⏱ {FormatTime(remaining)}\x1b[0m  \x1b[36mTa réponse (a/b/c/d · q=passer · s=stop) :\x1b[0m ");
     }
 
     private void ShowSummary()
@@ -140,6 +197,13 @@ public sealed class QuizSession
         }
 
         AnsiConsole.Write(new Rule("[yellow]Résultat final[/]").LeftJustified());
+
+        var elapsed = _stopwatch.Elapsed;
+        if (_timeExpired)
+            AnsiConsole.MarkupLine($"[red]⏱ Temps dépassé : {FormatTime(elapsed)} / {FormatTime(_totalTime)}[/]");
+        else
+            AnsiConsole.MarkupLine($"[grey]⏱ Temps utilisé : {FormatTime(elapsed)} / {FormatTime(_totalTime)}[/]");
+        AnsiConsole.WriteLine();
 
         var pct = 100 * _correct / _answered;
         var verdict = pct switch

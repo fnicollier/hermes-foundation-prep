@@ -1,3 +1,4 @@
+using System.Globalization;
 using HermesQuizCli.Models;
 using HermesQuizCli.Services;
 using Spectre.Console;
@@ -9,6 +10,10 @@ try
 
     var config = ParseArgs(args);
     var bank = new QuestionBank();
+
+    // If no category filters were provided via CLI, let the user pick interactively.
+    if (!config.MockMode && config.ObjectifFilter == null && config.TopicFilter == null)
+        config = PromptForCategory(bank, config);
 
     // If no count was explicitly provided (and not in mock mode), prompt the user.
     if (!config.MockMode && !config.CountExplicit)
@@ -42,23 +47,102 @@ catch (Exception ex)
     return 2;
 }
 
+static QuizConfig PromptForCategory(QuestionBank bank, QuizConfig config)
+{
+    var mode = AnsiConsole.Prompt(
+        new SelectionPrompt<string>()
+            .Title("[cyan]Mode de sélection :[/]")
+            .AddChoices([
+                "Toutes les questions",
+                "Par objectif",
+                "Par thème",
+                "Examen blanc (40 Q, distribution officielle 12/8/10/10)"
+            ]));
+
+    AnsiConsole.WriteLine();
+
+    if (mode.StartsWith("Examen blanc", StringComparison.Ordinal))
+        return config with { MockMode = true, CountExplicit = true };
+
+    if (mode == "Par objectif")
+    {
+        var labels = new Dictionary<string, string>
+        {
+            ["1"] = "Obj 1 – Utilisation et positionnement de HERMES",
+            ["2"] = "Obj 2 – Organisation du projet",
+            ["3"] = "Obj 3 – Conduite et pilotage",
+            ["4"] = "Obj 4 – Application dans des scénarios",
+        };
+        var counts = bank.CountByObjectif();
+
+        var objKey = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("[cyan]Objectif :[/]")
+                .UseConverter(key => $"{labels[key]}  [[{counts.GetValueOrDefault(key, 0)} Q]]")
+                .AddChoices(labels.Keys));
+
+        AnsiConsole.WriteLine();
+        return config with { ObjectifFilter = objKey };
+    }
+
+    if (mode == "Par thème")
+    {
+        var topicGroups = new (string Label, string[] Topics)[]
+        {
+            ("Méthode & Fondements",    ["Méthode", "Cycle de vie", "Phases", "Jalons", "Programme"]),
+            ("Organisation de projet",  ["Org. de projet", "Organisation projet", "Organisation permanente",
+                                         "Groupes de partenaires", "Principes attribution", "Subordination"]),
+            ("Rôles",                   ["Rôles", "Rôles responsables", "Description rôle", "Compétences rôle",
+                                         "Cumuls de rôles", "Mandant", "Gestionnaire QR",
+                                         "Chef de projet", "Chef de sous-projet"]),
+            ("Modules",                 ["Modules", "Module Conduite", "Module Pilotage",
+                                         "Module Org. déploiement", "Module Bases", "Module Achat",
+                                         "Module Produit", "Module Organisation"]),
+            ("Tâches & Résultats",      ["Résultats", "Tâches", "Résultats/Tâches", "Tâches décisionnelles",
+                                         "Listes de contrôle", "Tâches/Résultats Conduite",
+                                         "Tâches/Résultats Achat", "Tâches/Résultats Produit",
+                                         "Tâches/Résultats Bases", "Tâches/Résultats Pilotage",
+                                         "Tâches/Résultats Org.", "Tâches/Résultats Org. déploiement"]),
+            ("Scénarios & Application", ["Scénarios", "Org. de projet par scénario", "Modules par scénario",
+                                         "Niveaux hiérarchiques", "Application"]),
+        };
+
+        var allTopics = bank.CountByTopic();
+        int GroupCount((string Label, string[] Topics) g) =>
+            g.Topics.Sum(t => allTopics.GetValueOrDefault(t, 0));
+
+        var selected = AnsiConsole.Prompt(
+            new SelectionPrompt<(string Label, string[] Topics)>()
+                .Title("[cyan]Thème :[/]")
+                .UseConverter(g => $"{g.Label}  [[{GroupCount(g)} Q]]")
+                .AddChoices(topicGroups));
+
+        AnsiConsole.WriteLine();
+        return config with { TopicGroup = selected.Topics, TopicGroupLabel = selected.Label };
+    }
+
+    return config;
+}
+
 static int PromptForCount(QuestionBank bank, QuizConfig config)
 {
     // Determine the relevant pool size for the user's filters.
     var availablePool = bank.Pick(config with { Count = int.MaxValue, CountExplicit = true }).Count;
 
-    var contextLabel = (config.ObjectifFilter, config.TopicFilter) switch
+    var contextLabel = (config.ObjectifFilter, config.TopicFilter, config.TopicGroupLabel) switch
     {
-        (string o, null)    => $" sur Obj {o}",
-        (null, string t)    => $" sur le topic « {t} »",
-        (string o, string t) => $" sur Obj {o} / topic « {t} »",
-        _                   => ""
+        (string o, null, null)     => $" sur Obj {o}",
+        (null, string t, null)     => $" sur le topic « {t} »",
+        (string o, string t, null) => $" sur Obj {o} / topic « {t} »",
+        (null, null, string g)     => $" sur le thème « {g} »",
+        (string o, null, string g) => $" sur Obj {o} / thème « {g} »",
+        _                          => ""
     };
 
     AnsiConsole.MarkupLine(
         $"[grey]Banque chargée : {bank.TotalCount} questions au total ; {availablePool} disponible(s){contextLabel}.[/]");
 
-    var defaultCount = Math.Min(10, availablePool);
+    var defaultCount = Math.Min(40, availablePool);
 
     var count = AnsiConsole.Prompt(
         new TextPrompt<int>($"[cyan]Combien de questions ?[/] [grey](1 à {availablePool}, défaut {defaultCount})[/]")
@@ -78,7 +162,7 @@ static int PromptForCount(QuestionBank bank, QuizConfig config)
 
 static QuizConfig ParseArgs(string[] args)
 {
-    int count = 10;
+    int count = 40;
     bool countExplicit = false;
     string? obj = null;
     string? topic = null;
@@ -91,7 +175,7 @@ static QuizConfig ParseArgs(string[] args)
         switch (args[i])
         {
             case "--count" or "-c" when i + 1 < args.Length:
-                count = int.Parse(args[++i]);
+                count = int.Parse(args[++i], CultureInfo.InvariantCulture);
                 countExplicit = true;
                 break;
 
@@ -108,7 +192,7 @@ static QuizConfig ParseArgs(string[] args)
                 break;
 
             case "--seed" or "-s" when i + 1 < args.Length:
-                seed = int.Parse(args[++i]);
+                seed = int.Parse(args[++i], CultureInfo.InvariantCulture);
                 break;
 
             case "--terse":
